@@ -7,13 +7,14 @@
  * @package ceeso
  */
 
-/**
- * Initialisation de la configuration du thème
- * après avoir vérifier si la fonction existe
- *
- * @return void
- */
+
 if (!function_exists('ceeso_init')) {
+    /**
+     * Initialisation de la configuration du thème
+     * après avoir vérifier si la fonction existe
+     *
+     * @return void
+     */
     function ceeso_init()
     {
         add_theme_support('title-tag');
@@ -26,6 +27,16 @@ add_action('after_setup_theme', 'ceeso_init');
 
 
 if (!function_exists('create_post_type')) {
+    /**
+     * Généère un custom Post Type
+     * 
+     * @param string $singular
+     * @param string $plural
+     * @param string $menu_icon
+     * @param string $description
+     * 
+     * @return void
+     */
     function create_post_type(
         string $singular,
         string $plural,
@@ -42,7 +53,7 @@ if (!function_exists('create_post_type')) {
             'supports'          => ['title', 'editor', 'author', 'thumbnail'],
             'menu_position'         => 5,
             'rewrite'           => [
-                'slug'=> strtolower($plural),
+                'slug' => strtolower($plural),
             ],
             'labels' => [
                 'name'                      =>  __($plural, 'ceeso'),
@@ -76,12 +87,35 @@ if (!function_exists('create_post_type')) {
 
 
 if (!function_exists('custom_cpts')) {
+    /**
+     * Création des CPT Event et Question
+     * 
+     * @return void
+     */
     function custom_cpts()
     {
         create_post_type('Event', 'Events', 'dashicons-calendar');
-        create_post_type('Questions', 'Questions', 'dashicons-editor-help');
+        create_post_type('Question', 'Questions', 'dashicons-editor-help');
     }
 }
 
 
 add_action('init', 'custom_cpts');
+
+
+
+/**
+ * Déclaration de la Méta box date pour le CPT Event
+ * 
+ * @return void
+ */
+function event_date_meta_box()
+{
+	add_meta_box(
+		'event_date',
+		'Dates',
+		'event_date_meta_box_html',
+		'event'
+	);
+}
+add_action('add_meta_boxes', 'event_date_meta_box');
