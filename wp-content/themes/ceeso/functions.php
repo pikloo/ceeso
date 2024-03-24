@@ -104,18 +104,145 @@ add_action('init', 'custom_cpts');
 
 
 
-/**
- * Déclaration de la Méta box date pour le CPT Event
- * 
- * @return void
- */
-function event_date_meta_box()
-{
-	add_meta_box(
-		'event_date',
-		'Dates',
-		'event_date_meta_box_html',
-		'event'
-	);
+if (!function_exists('event_informations_meta_box')) {
+    /**
+     * Déclaration de la Méta box informations pour le CPT Event
+     * 
+     * @return void
+     */
+    function event_informations_meta_box()
+    {
+        add_meta_box(
+            'event_informations',
+            'Informations',
+            'event_informations_meta_box_html',
+            'event'
+        );
+    }
 }
-add_action('add_meta_boxes', 'event_date_meta_box');
+
+add_action('add_meta_boxes', 'event_informations_meta_box');
+
+
+if (!function_exists('event_informations_meta_box_html')) {
+    /**
+     * Affichage de la Méta box informations 
+     *
+     * @param WP_Post $post
+     * @return void
+     */
+    function event_informations_meta_box_html($post)
+    {
+        $date = get_post_meta($post->ID, 'date', true);
+        $place = get_post_meta($post->ID, 'place', true);
+
+        wp_nonce_field('event_informations' . $post->ID, '_wp_nonce_informations');
+
+?>
+        <table>
+            <tbody>
+                <tr>
+                    <th><label for="date">Date</label></th>
+                    <td><input type="date" id="date" name="_date" value='<?= esc_attr($date) ?>'></td>
+                </tr>
+                <tr>
+                    <th><label for="place">Lieu</label></th>
+                    <td>
+                        <input type="text" id="place" name="_place" value='<?= esc_attr($place) ?>'>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+<?php
+    }
+}
+
+
+
+if (!function_exists('event_informations_save_meta')) {
+    /**
+     * Sauvegarde des informations
+     *
+     * @param string $post_id
+     * @return void
+     */
+    function event_informations_save_meta($post_id)
+    {
+
+        if (!isset($_POST['_wp_nonce_informations'])) {
+            return;
+        }
+
+        if (!wp_verify_nonce($_POST['_wp_nonce_informations'], 'event_informations' . $post_id)) {
+            return;
+        }
+
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+
+        if (isset($_POST['_date'])) {
+            update_post_meta($post_id, 'date', sanitize_text_field($_POST['_date']));
+        }
+        if (isset($_POST['_place'])) {
+            update_post_meta($post_id, 'place', sanitize_text_field($_POST['_place']));
+        }
+
+        return $post_id;
+    }
+}
+
+add_action('save_post', 'event_informations_save_meta', 10, 2);
+
+
+if (!function_exists('enqueue_admin_scripts')) {
+    /**
+     * Chargement des scripts dans l'admin
+     *
+     * @return void
+     */
+    function enqueue_admin_scripts()
+    {
+        if ('event' === get_current_screen()->id) {
+        }
+    }
+}
+
+add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
+
+
+if (!function_exists('enqueue_admin_styles')) {
+    /**
+     * Chargement des styles dans l'admin
+     *
+     * @return void
+     */
+    function enqueue_admin_styles()
+    {
+        if ('event' === get_current_screen()->id) {
+        }
+    }
+}
+
+add_action('admin_enqueue_styles', 'enqueue_admin_styles');
+
+
+if (!function_exists('load_assets')) {
+    
+    /**
+     * Chargement des scripts et des styles
+     *
+     * @return void
+     */
+    function load_assets()
+    {
+    //   wp_enqueue_style(
+    //     'styleCss',
+    //     get_theme_file_uri('style.css')
+    //   );
+  
+      wp_enqueue_script('tailwind', 'https://cdn.tailwindcss.com', [], null, true);
+    
+      wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/css?family=Montserrat:500,600');
+    }
+  }
+  
+  add_action('wp_enqueue_scripts', 'load_assets');
