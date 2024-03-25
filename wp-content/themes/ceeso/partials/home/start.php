@@ -1,10 +1,14 @@
-<section class="bg-secondary text-white p-4 lg:p-10 xl:py-20">
-    <div class="max-w-screen-sm lg:max-w-screen-xl mx-auto lg:flex lg:flex-row-reverse lg:gap-x-10">
-        <div class="w-fit mx-auto space-y-2 lg:w-1/2">
-            <img src="./wp-content/themes/ceeso/assets/images/ceeso_team_1.png" alt="Centre Européen d’Enseignement supérieur de l’Ostéopathie" />
-            <img src="./wp-content/themes/ceeso/assets/images/ceeso_team_2.png" alt="Centre Européen d’Enseignement supérieur de l’Ostéopathie" />
+<section class="bg-secondary text-white p-4 relative">
+    <div class="absolute xl:bg-start bg-auto left-[45%] h-[454px] w-full bg-no-repeat z-10"></div>
+    <div class="max-w-screen-sm lg:max-w-screen-xl mx-auto lg:flex lg:flex-row-reverse lg:gap-x-10 relative z-50">
+        <div class=" lg:py-10 xl:py-20">
+            <div class="w-fit mx-auto space-y-2">
+                <img src="./wp-content/themes/ceeso/assets/images/ceeso_team_1.png" alt="Centre Européen d’Enseignement supérieur de l’Ostéopathie" />
+                <img src="./wp-content/themes/ceeso/assets/images/ceeso_team_2.png" alt="Centre Européen d’Enseignement supérieur de l’Ostéopathie" />
+            </div>
         </div>
-        <div class="space-y-8 lg:w-1/2">
+
+        <div class="space-y-8 lg:w-1/2 lg:py-10 xl:py-20">
             <h1 class="text-[34px] leading-[48px] max-w-md xl:text-4xl">Centre Européen d’Enseignement supérieur de l’Ostéopathie</h1>
             <div class="leading-[19.2px] ">
                 <p>École d’Ostéopathie depuis 1991.</p>

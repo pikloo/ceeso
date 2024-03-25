@@ -12,6 +12,9 @@
                         "secondary": "#212D3B",
                         "third": "#27323A",
                         "quarter": "#00007F"
+                    },
+                    backgroundImage: {
+                        start: "url('./wp-content/themes/ceeso/assets/images/start-bg.png')"
                     }
                 }
             }

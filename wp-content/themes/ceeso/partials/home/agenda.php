@@ -16,6 +16,7 @@ $mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aôu
             $date = explode(',', $date);
             $dates = match (true) {
                 count($date) === 1 => substr($date[0], 0, 2) . ' ' . ucfirst($mois[intval(substr($date[0], 3, 2)) - 1]) . ' ' . substr($date[0], 6, 4),
+                // Si les 2 dates sont du même mois, on affiche seulement le jour de la première date
                 count($date) === 2 => substr($date[0], 3, 2) === substr($date[1], 4, 2)  ?  substr($date[0], 0, 2) .  ' & ' . substr($date[1], 1, 2) . ' ' . ucfirst($mois[intval(substr($date[1], 4, 2)) - 1]) . ' ' . substr($date[1], 7, 4) : substr($date[0], 0, 2)  . ' & ' . ucfirst($mois[intval(substr($date[0], 3, 2)) - 1]) . ' ' . substr($date[0], 6, 4) . ' & ' . substr($date[1], 1, 2) . ' ' . ucfirst($mois[intval(substr($date[1], 4, 2)) - 1]) . ' ' . substr($date[1], 7, 4),
                 count($date) > 2 => 'Voir les Prochaines dates',
             };
