@@ -1,6 +1,6 @@
 <section class="bg-secondary py-6 px-5 text-white my-14">
     <figure class="space-y-6">
-        <img class="w-full mx-auto" src="./wp-content/themes/ceeso/assets/images/access_filiere_sante.png" alt="Accès filière de santé" />
+        <img class="w-fit mx-auto" src="./wp-content/themes/ceeso/assets/images/access_filiere_sante.png" alt="Accès filière de santé" />
         <figcaption>
             <span class="text-[15px] leading-[18px] tracking-[20%] font-light uppercase text-white">Filière</span>
             <h2>Accès filière de santé</h2>

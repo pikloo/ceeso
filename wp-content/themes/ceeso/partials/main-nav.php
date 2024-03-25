@@ -10,7 +10,7 @@
 
     </div>
     <a class="text-3xl font-bold leading-none" href="#">
-        <img src="./wp-content/themes/ceeso/assets/images/logo_ceeso_blanc.png" alt="Centre Européen d'Enseignement supérieur de l'Ostéopathie" />
+        <img src="./wp-content/themes/ceeso/assets/images/logo_ceeso.png" alt="Centre Européen d'Enseignement supérieur de l'Ostéopathie" />
     </a>
     <div class="lg:hidden">
         <button>

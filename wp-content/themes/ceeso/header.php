@@ -33,8 +33,12 @@
         @apply font-medium leading-[19.2px];
       }
 
-      h3 {
+      h3, h4 {
         @apply font-medium text-lg leading-[21.6px];
+      }
+
+      footer h3 {
+        @apply font-bold text-2xl leading-[28.8px] mb-6;
       }
     }
   </style>
