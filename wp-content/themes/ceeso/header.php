@@ -40,6 +40,58 @@
       footer h3 {
         @apply font-bold text-2xl leading-[28.8px] mb-6;
       }
+
+      .navbar-menu .main a {
+        @apply block p-4 text-sm font-semibold text-secondary hover:bg-primary/10 hover:text-primary rounded;
+      }
+
+      .navbar-menu .main {
+        @apply space-y-1;
+      }
+
+      .navbar-menu .actions a {
+        @apply block px-4 py-3 mb-3 leading-loose text-xs text-center font-semibold rounded w-full;
+      }
+
+      .navbar-menu .actions li {
+        @apply w-full;
+      }
+
+      li.light a {
+        @apply bg-primary/10 text-quarter;
+      }
+
+      li.quarter a {
+        @apply bg-quarter text-white;
+      }
+
+      li.secondary a {
+        @apply bg-secondary text-white;
+      }
+
+      li.primary a {
+        @apply bg-primary text-white;
+      }
+
+      .actions a {
+        @apply hidden xl:inline-block xl:ml-auto xl:mr-3 py-2 px-6 rounded font-bold transition duration-200;
+      }
+
+      .actions {
+        @apply flex items-center;
+      }
+
+      .navbar-menu .actions {
+        @apply flex-col pt-6 space-y-1;
+      }
+
+      .navbar-regular .main {
+        @apply hidden xl:mx-auto xl:flex xl:items-center xl:w-auto xl:space-x-6;
+      }
+
+      .navbar-regular .main a{
+        @apply font-semibold text-[15px] leading-[20.43px] text-secondary;
+      }
     }
   </style>
 </head>

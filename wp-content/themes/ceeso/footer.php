@@ -11,15 +11,15 @@
                         "primary": "#256EFA",
                         "secondary": "#212D3B",
                         "third": "#27323A",
+                        "quarter": "#00007F"
                     }
                 }
             }
         }
     </script>
 <script>
-    // Burger menus
     document.addEventListener('DOMContentLoaded', function() {
-        // open
+        //Open Menu
         const burger = document.querySelectorAll('.navbar-burger');
         const menu = document.querySelectorAll('.navbar-menu');
 
@@ -32,8 +32,7 @@
                 });
             }
         }
-
-        // close
+        // Close Menu
         const close = document.querySelectorAll('.navbar-close');
         const backdrop = document.querySelectorAll('.navbar-backdrop');
 

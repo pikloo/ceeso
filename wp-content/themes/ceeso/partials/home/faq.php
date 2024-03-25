@@ -1,6 +1,6 @@
-<section class="p-5 pb-10">
+<section class="p-5 pb-10 max-w-screen-xl mx-auto">
     <span class="title">Découvrez</span>
-    <h2>Nos questions les plus fréquentes</h2>
+    <h2 class="max-w-[354px]">Nos questions les plus fréquentes</h2>
     <div class="space-y-4 ">
         <?php $loop = new WP_Query(array('post_type' => 'question', 'posts_per_page' => '10')); ?>
         <?php while ($loop->have_posts()) : ?>
