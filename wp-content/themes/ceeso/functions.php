@@ -234,14 +234,9 @@ if (!function_exists('load_assets')) {
      */
     function load_assets()
     {
-    //   wp_enqueue_style(
-    //     'styleCss',
-    //     get_theme_file_uri('style.css')
-    //   );
-  
       wp_enqueue_script('tailwind', 'https://cdn.tailwindcss.com', [], null, true);
     
-      wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/css?family=Montserrat:500,600');
+      wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
     }
   }
   
