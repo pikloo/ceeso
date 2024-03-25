@@ -55,6 +55,15 @@
                 });
             }
         }
+
+        const plus = document.querySelectorAll('.plus');
+        plus.forEach(item => {
+            item.addEventListener('click', () => {
+                item.ariaExpanded = item.ariaExpanded === 'false'? 'true' : 'false';
+            })
+        })
+
+
     });
 </script>
 <?php
