@@ -1,3 +1,6 @@
+<?php
+$mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aôut', 'septembre', 'octobre', 'novembre', 'décembre'];
+?>
 <section class="px-4 py-10 max-w-screen-xl mx-auto">
     <span class="title">Ceeso</span>
     <h2>L'Agenda</h2>
@@ -12,8 +15,8 @@
             $date = get_post_meta(get_the_ID(), 'date', true);
             $date = explode(',', $date);
             $dates = match (true) {
-                count($date) === 1 => $date[0],
-                count($date) === 2 => $date[0] . $date[1] ,
+                count($date) === 1 => substr($date[0], 0, 2) . ' ' . ucfirst($mois[intval(substr($date[0], 3, 2)) - 1]) . ' ' . substr($date[0], 6, 4),
+                count($date) === 2 => substr($date[0], 3, 2) === substr($date[1], 4, 2)  ?  substr($date[0], 0, 2) .  ' & ' . substr($date[1], 1, 2) . ' ' . ucfirst($mois[intval(substr($date[1], 4, 2)) - 1]) . ' ' . substr($date[1], 7, 4) : substr($date[0], 0, 2)  . ' & ' . ucfirst($mois[intval(substr($date[0], 3, 2)) - 1]) . ' ' . substr($date[0], 6, 4) . ' & ' . substr($date[1], 1, 2) . ' ' . ucfirst($mois[intval(substr($date[1], 4, 2)) - 1]) . ' ' . substr($date[1], 7, 4),
                 count($date) > 2 => 'Voir les Prochaines dates',
             };
 
