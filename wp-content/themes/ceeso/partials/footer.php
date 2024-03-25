@@ -1,4 +1,4 @@
-<footer>
+<footer class="p-6 bg-secondary text-white">
     <div><img src="" alt="" /></div>
     <div>
         <h3>Liens utiles</h3>
