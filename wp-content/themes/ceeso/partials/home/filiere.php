@@ -8,7 +8,7 @@
             </p>
             <p>Nous faisons également passer des examens anticipés pour valider les acquis des étudiants issus de PACES.
             <p>
-            <p class="mt-6">Pour plus de renseignements, contactez : osteo@ceesoparis.com</p>
+            <p class="mt-6">Pour plus de renseignements, contactez : <a href="mailto:<?= bloginfo('admin_email')?>">osteo@ceesoparis.com</a></p>
         </figcaption>
     </figure>
 </section>

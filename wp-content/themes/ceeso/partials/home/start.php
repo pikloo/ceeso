@@ -5,7 +5,7 @@
             <img src="./wp-content/themes/ceeso/assets/images/ceeso_team_2.png" alt="Centre Européen d’Enseignement supérieur de l’Ostéopathie" />
         </div>
         <div class="space-y-8 lg:w-1/2">
-            <h1 class="text-[34px] leading-[48px] max-w-md">Centre Européen d’Enseignement supérieur de l’Ostéopathie</h1>
+            <h1 class="text-[34px] leading-[48px] max-w-md xl:text-4xl">Centre Européen d’Enseignement supérieur de l’Ostéopathie</h1>
             <div class="leading-[19.2px] ">
                 <p>École d’Ostéopathie depuis 1991.</p>
                 <p> Formation agrée par le ministère de la santé, RNCP Niveau 7</p>

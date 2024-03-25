@@ -22,7 +22,7 @@
       }
 
       h2 {
-        @apply text-[32px] leading-[38.4px] text-secondary mb-8;
+        @apply text-[32px] leading-[38.4px] text-secondary mb-8 xl:text-[34px];
       }
 
       figcaption > h2 {
