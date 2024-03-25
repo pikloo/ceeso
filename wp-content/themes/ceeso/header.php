@@ -57,19 +57,19 @@
         @apply w-full;
       }
 
-      li.light a {
+      .actions li.light a {
         @apply bg-primary/10 text-quarter;
       }
 
-      li.quarter a {
+      .actions li.quarter a {
         @apply bg-quarter text-white;
       }
 
-      li.secondary a {
+      .actions li.secondary a {
         @apply bg-secondary text-white;
       }
 
-      li.primary a {
+      .actions li.primary a {
         @apply bg-primary text-white;
       }
 
@@ -90,7 +90,15 @@
       }
 
       .navbar-regular .main a{
-        @apply font-semibold text-[15px] leading-[20.43px] text-secondary;
+        @apply font-semibold text-[15px] leading-[20.43px] text-secondary after:content-['⌄'];
+      }
+
+      .menu-secondary > li.secondary {
+        @apply mr-4 text-secondary;
+      }
+
+      .menu-secondary > li.primary {
+        @apply pl-4 text-primary;
       }
     }
   </style>
