@@ -28,7 +28,7 @@ add_action('after_setup_theme', 'ceeso_init');
 
 if (!function_exists('create_post_type')) {
     /**
-     * Généère un custom Post Type
+     * Génère un custom Post Type
      * 
      * @param string $singular
      * @param string $plural
@@ -143,7 +143,7 @@ if (!function_exists('event_informations_meta_box_html')) {
             <tbody>
                 <tr>
                     <th><label for="date">Date</label></th>
-                    <td><input type="date" id="date" name="_date" value='<?= esc_attr($date) ?>'></td>
+                    <td><input type="text" id="datePick" name="_date" value='<?= esc_attr($date) ?>'></td>
                 </tr>
                 <tr>
                     <th><label for="place">Lieu</label></th>
@@ -153,7 +153,16 @@ if (!function_exists('event_informations_meta_box_html')) {
                 </tr>
             </tbody>
         </table>
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                jQuery('#datePick').flatpickr({
+                    mode: "multiple",
+                    dateFormat: "d-m-Y",
+                });
+            });
+        </script>
 <?php
+
     }
 }
 
@@ -195,13 +204,15 @@ add_action('save_post', 'event_informations_save_meta', 10, 2);
 
 if (!function_exists('enqueue_admin_scripts')) {
     /**
-     * Chargement des scripts dans l'admin
+     * Chargement des scripts et des styles dans l'admin
      *
      * @return void
      */
     function enqueue_admin_scripts()
     {
         if ('event' === get_current_screen()->id) {
+            wp_enqueue_script('flatpcikr', 'https://cdn.jsdelivr.net/npm/flatpickr', [], null, true);
+            wp_enqueue_style('flatpickcss', 'https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css');
         }
     }
 }
@@ -209,24 +220,8 @@ if (!function_exists('enqueue_admin_scripts')) {
 add_action('admin_enqueue_scripts', 'enqueue_admin_scripts');
 
 
-if (!function_exists('enqueue_admin_styles')) {
-    /**
-     * Chargement des styles dans l'admin
-     *
-     * @return void
-     */
-    function enqueue_admin_styles()
-    {
-        if ('event' === get_current_screen()->id) {
-        }
-    }
-}
-
-add_action('admin_enqueue_styles', 'enqueue_admin_styles');
-
-
 if (!function_exists('load_assets')) {
-    
+
     /**
      * Chargement des scripts et des styles
      *
@@ -234,10 +229,43 @@ if (!function_exists('load_assets')) {
      */
     function load_assets()
     {
-      wp_enqueue_script('tailwind', 'https://cdn.tailwindcss.com', [], null, true);
-    
-      wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+        wp_enqueue_script('tailwind', 'https://cdn.tailwindcss.com', [], null, true);
+
+        wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+    }
+}
+
+add_action('wp_enqueue_scripts', 'load_assets');
+
+
+if(!function_exists('event_list_table_head')){
+/**
+ * Customisation du header de la liste des évènements
+ *
+ * @param [type] $defaults
+ * @return void
+ */
+function event_list_table_head( $defaults ) {
+    $defaults['_date'] = 'Dates';
+    return $defaults;
+  }
+  
+}
+
+  add_filter('manage_event_posts_columns', 'event_list_table_head');
+  
+  
+  /**
+   * Affichage du header custom de la liste des évènements
+   *
+   * @param [type] $column_name
+   * @param [type] $post_id
+   * @return void
+   */
+  function event_list_table_content( $column_name, $post_id ) {
+    if ($column_name == '_date') {
+      echo  get_post_meta($post_id, 'date', true);
     }
   }
   
-  add_action('wp_enqueue_scripts', 'load_assets');
+  add_action( 'manage_event_posts_custom_column', 'event_list_table_content', 10, 2 );

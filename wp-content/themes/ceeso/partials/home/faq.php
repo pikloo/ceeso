@@ -5,8 +5,8 @@
         <?php $loop = new WP_Query(array('post_type' => 'question', 'posts_per_page' => '10')); ?>
         <?php while ($loop->have_posts()) : ?>
             <?php $loop->the_post(); ?>
-            <details class="group">
-                <summary class="flex justify-between items-center pb-4 border-b-2 border-primary/10 cursor-pointer list-none">
+            <details class="group pb-4 border-b-2 border-primary/10 cursor-pointer list-none">
+                <summary class="flex justify-between items-center ">
                     <span class="leading-[19.2px]"><?php the_title(); ?></span>
                     <span class="plus transition group-open:rotate-180 inline" aria-expanded="false" id="question_<?= $wp_query->current_post; ?>">
                         <svg width="42" height="43" viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@
                     </span>
                 </summary>
                 <p class="text-neutral-600 mt-3 group-open:animate-fadeIn" role="region" aria-labelledby="question_<?= $wp_query->current_post; ?>">
-                    <?= get_the_content(); ?>
+                    <?= esc_html(get_the_content()); ?>
                 </p>
             </details>
         <?php endwhile; ?>

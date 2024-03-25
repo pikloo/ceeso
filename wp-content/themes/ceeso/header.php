@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> >
+<html <?php language_attributes(); ?>>
 
 <head>
-    <meta charset="<?php bloginfo('charset')?>">
-    <?php
+  <meta charset="<?php bloginfo('charset') ?>">
+  <?php
   wp_head();
   ?>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style type="text/tailwindcss">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
     @layer base {
       h1, h2, h3, h4, h5, h6 {
         @apply font-title font-bold;
@@ -96,4 +96,4 @@
   </style>
 </head>
 
-<body class="font-body tracking-[4%]">
+<body class="font-body">
