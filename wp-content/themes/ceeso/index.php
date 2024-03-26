@@ -5,7 +5,7 @@ get_header();
     <?php get_template_part('partials/secondary-nav', 'secondary-nav') ?>
     <?php get_template_part('partials/main-nav', 'main-nav') ?>
 </header>
-<main>
+<main class="overflow-hidden">
     <?php get_template_part('partials/home/start', 'start') ?>
     <?php get_template_part('partials/home/agenda', 'agenda') ?>
     <?php get_template_part('partials/home/ecole', 'ecole') ?>
