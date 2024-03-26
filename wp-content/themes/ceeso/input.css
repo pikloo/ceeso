@@ -65,19 +65,19 @@ Version: 1.0.0
   }
 
   .actions li.light a {
-    @apply bg-primary/10 text-quarter;
+    @apply bg-primary/10 text-quarter hover:bg-primary/20;
   }
 
   .actions li.quarter a {
-    @apply bg-quarter text-white;
+    @apply bg-quarter text-white hover:bg-quarter/80;
   }
 
   .actions li.secondary a {
-    @apply bg-secondary text-white;
+    @apply bg-secondary text-white hover:bg-secondary/80;
   }
 
   .actions li.primary a {
-    @apply bg-primary text-white;
+    @apply bg-primary text-white hover:bg-primary/80;
   }
 
   .actions a {

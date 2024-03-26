@@ -80,6 +80,6 @@
                 <p class="font-light text-sm leading-[16.8px]">Une Unité Pédiatrique est intégrée au sein de la Clinique ostéopathique de l’établissement : À Mains Nues Paris.</p>
             </div>
         </div>
-        <a class="button bg-primary w-fit py-2.5 px-5 mx-auto text-white" href="">Découvrir l'école</a>
+        <a class="button bg-primary w-fit py-2.5 px-5 mx-auto text-white hover:bg-primary/80" href="">Découvrir l'école</a>
     </div>
 </section>
