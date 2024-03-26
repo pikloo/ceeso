@@ -1,5 +1,5 @@
 <section class="bg-secondary text-white p-4 relative">
-    <div class="absolute xl:bg-start bg-auto left-[45%] h-[454px] w-full bg-no-repeat z-10"></div>
+    <div class="absolute xl:bg-start bg-auto left-[45%] h-[454px] w-full bg-no-repeat z-50"></div>
     <div class="max-w-screen-sm lg:max-w-screen-xl mx-auto lg:flex lg:flex-row-reverse lg:gap-x-10 relative z-50">
         <div class=" lg:py-10 xl:py-20">
             <div class="w-fit mx-auto space-y-2">

@@ -229,8 +229,8 @@ if (!function_exists('load_assets')) {
      */
     function load_assets()
     {
-        wp_enqueue_script('tailwind', 'https://cdn.tailwindcss.com', [], null, true);
-
+        wp_enqueue_style('styleCss', get_theme_file_uri('style.css'));
+        wp_enqueue_script('JS', get_theme_file_uri('index.js'), [], null, true);
         wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
     }
 }
@@ -238,34 +238,35 @@ if (!function_exists('load_assets')) {
 add_action('wp_enqueue_scripts', 'load_assets');
 
 
-if(!function_exists('event_list_table_head')){
-/**
- * Customisation du header de la liste des évènements
- *
- * @param [type] $defaults
- * @return void
- */
-function event_list_table_head( $defaults ) {
-    $defaults['_date'] = 'Dates';
-    return $defaults;
-  }
-  
+if (!function_exists('event_list_table_head')) {
+    /**
+     * Customisation du header de la liste des évènements
+     *
+     * @param [type] $defaults
+     * @return void
+     */
+    function event_list_table_head($defaults)
+    {
+        $defaults['_date'] = 'Dates';
+        return $defaults;
+    }
 }
 
-  add_filter('manage_event_posts_columns', 'event_list_table_head');
-  
-  
-  /**
-   * Affichage du header custom de la liste des évènements
-   *
-   * @param [type] $column_name
-   * @param [type] $post_id
-   * @return void
-   */
-  function event_list_table_content( $column_name, $post_id ) {
+add_filter('manage_event_posts_columns', 'event_list_table_head');
+
+
+/**
+ * Affichage du header custom de la liste des évènements
+ *
+ * @param [type] $column_name
+ * @param [type] $post_id
+ * @return void
+ */
+function event_list_table_content($column_name, $post_id)
+{
     if ($column_name == '_date') {
-      echo  get_post_meta($post_id, 'date', true);
+        echo  get_post_meta($post_id, 'date', true);
     }
-  }
-  
-  add_action( 'manage_event_posts_custom_column', 'event_list_table_content', 10, 2 );
+}
+
+add_action('manage_event_posts_custom_column', 'event_list_table_content', 10, 2);

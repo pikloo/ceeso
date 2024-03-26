@@ -16,8 +16,8 @@ $menu_actions = wp_nav_menu([
 ]);
 ?>
 
-<nav class="relative px-4 py-1 flex justify-between items-center xl:max-w-screen-xl mx-auto">
-    <div class="xl:hidden">
+<nav class="relative px-4 xl:px-0 py-1 flex justify-between items-center xl:max-w-screen-xl mx-auto">
+    <div class="lg:hidden">
         <button class="navbar-burger flex items-center p-3">
             <svg width="22" height="17" viewBox="0 0 22 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 0.88501H21" stroke="#1E1E1E" stroke-width="1.5" stroke-linecap="round" />
@@ -39,7 +39,7 @@ $menu_actions = wp_nav_menu([
     </div>
     <div class="hidden xl:block"><?= $menu_actions; ?></div>
 </nav>
-<div class="navbar-menu relative z-50 hidden">
+<div class="navbar-menu relative z-[60] hidden">
     <div class="navbar-backdrop fixed inset-0 opacity-25"></div>
     <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
         <div class="flex items-center mb-8">
